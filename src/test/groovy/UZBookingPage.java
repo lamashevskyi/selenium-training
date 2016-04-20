@@ -22,15 +22,17 @@ public class UZBookingPage {
     @FindBy(id="ts_res")
     private WebElement results;
 
-
     WebDriver driver;
+
+    WebDriverWait wait;
 
 
     public UZBookingPage(WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(this.driver, 5);
     }
 
-    WebDriverWait wait = new WebDriverWait(driver, 5);
+
 
     public void openPage() {
         driver.get("http://booking.uz.gov.ua/");
