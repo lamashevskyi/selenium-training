@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Listeners;
 
 public class UZBookingPage {
 
@@ -15,6 +16,7 @@ public class UZBookingPage {
 
     @FindBy(className="autosuggest")
     private WebElement autosuggest;
+
 
     @FindBy(name="search")
     private WebElement searchButton;
@@ -33,9 +35,9 @@ public class UZBookingPage {
     }
 
 
-
+    //@Listeners
     public void openPage() {
-        driver.get("http://booking.uz.gov.ua/");
+        driver.get("http://booking.uz.gov.ua/en/");
     }
 
     public void typeFromStation(String from) {
@@ -52,7 +54,8 @@ public class UZBookingPage {
     }
 
     public void selectFirstFromAutosuggest(WebElement element) {
-        element.findElement(By.className("autosuggest")).findElement(By.xpath("./div") ).click();
+//        element.findElement(By.className("autosuggest")).findElement(By.xpath("./div") ).click();
+        element.findElement(By.xpath("../div[@class='autosuggest']")).findElement(By.xpath("./div")).click();
     }
 
     public void search(String from, String to) {
